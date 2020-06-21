@@ -274,6 +274,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Overlay
 PRODUCT_PACKAGES += \
+    AOSPASweetFrameworks \
     SweetFrameworks \
     SweetSettings \
     SweetSystemUI \
