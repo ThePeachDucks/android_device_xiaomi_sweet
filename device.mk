@@ -42,6 +42,11 @@ PRODUCT_PACKAGES += \
 # GSI
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
+# Init
+PRODUCT_PACKAGES += \
+    init.qti.dcvs.sh \
+    init.target.rc
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
