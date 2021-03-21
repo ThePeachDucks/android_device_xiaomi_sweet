@@ -346,6 +346,11 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.dbg.vt_avail_ovr=1 \
     persist.dbg.wfc_avail_ovr=1
 
+# Init
+PRODUCT_PACKAGES += \
+    init.qti.dcvs.sh \
+    init.target.rc
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout)
