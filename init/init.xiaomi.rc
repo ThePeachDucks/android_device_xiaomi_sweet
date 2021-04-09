@@ -48,7 +48,7 @@ on init
     chmod 0660 /dev/akm09970
 
 on fs
-    mount_all --early
+    mount_all --early /vendor/etc/fstab.qcom
 
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
@@ -60,7 +60,7 @@ on fs
 on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
-    mount_all --late
+    mount_all --late /vendor/etc/fstab.qcom
 
 service mi_thermald /system/vendor/bin/mi_thermald
     class core
@@ -90,6 +90,9 @@ on boot
     # Set thermal mode to evaluation
     chown system system /sys/class/thermal/thermal_message/sconfig
     write /sys/class/thermal/thermal_message/sconfig 10
+
+    # Zram
+    swapon_all /vendor/etc/fstab.zram
 
 on property:sys.boot_completed=1
 
