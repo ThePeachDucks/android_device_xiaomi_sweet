@@ -3,3 +3,9 @@ prebuilt_etc {
     src: "etc/fstab.qcom",
     vendor: true,
 }
+
+prebuilt_etc {
+     name: "fstab.zram",
+     src: "etc/fstab.zram",
+     vendor: true,
+}
