@@ -312,7 +312,8 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Fstab
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    fstab.qcom_ramdisk
+    fstab.qcom_ramdisk \
+    fstab.zram
 
 # GPS
 LOC_HIDL_VERSION = 4.0
