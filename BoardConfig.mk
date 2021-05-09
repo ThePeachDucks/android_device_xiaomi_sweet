@@ -1,4 +1,4 @@
-#
+ #
 # Copyright (C) 2022 Paranoid Android
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -111,5 +111,4 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
