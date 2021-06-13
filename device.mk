@@ -381,7 +381,9 @@ PRODUCT_PACKAGES += \
     SweetSettings \
     SweetSystemUI \
     FrameworksResTarget \
-    SweetWifiOverlay
+    SweetWifiOverlay \
+    WifiOverlayM2101K6G \
+    WifiOverlayM2101K6I
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
