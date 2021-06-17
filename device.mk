@@ -269,6 +269,7 @@ PRODUCT_COPY_FILES += \
 # Overlay
 PRODUCT_PACKAGES += \
     SweetFrameworks \
+    SweetSettings \
     SweetSystemUI \
     FrameworksResTarget \
     WifiResTarget
