@@ -379,6 +379,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Overlay
 PRODUCT_PACKAGES += \
     SweetFrameworks \
+    SweetSystemUI \
     FrameworksResTarget \
     WifiResTarget
 
