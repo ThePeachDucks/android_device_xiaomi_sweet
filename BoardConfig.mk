@@ -29,6 +29,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a76
 # Assert
 TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 
+# Audio
+TARGET_PROVIDES_AUDIO_EXTNS := true
+
 # AVB
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
@@ -132,6 +135,10 @@ TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
+
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/properties/vendor.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/properties/product.prop
 
 # QCOM
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
