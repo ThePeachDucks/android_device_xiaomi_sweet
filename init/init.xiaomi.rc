@@ -91,7 +91,7 @@ on post-fs-data
     mkdir /mnt/vendor/persist/goodix 0770 system system
 
 on boot
-    start rmt_storage
+    start vendor.rmt_storage
     start rfs_access
     start mi_thermald
 
