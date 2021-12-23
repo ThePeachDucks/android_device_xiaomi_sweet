@@ -176,4 +176,7 @@
         <item>450</item>  <!-- index 2 -->
     </array>
 
+    <!-- Indicates whether device has a power button fingerprint sensor. -->
+    <bool name="config_is_powerbutton_fps">true</bool>
+
 </resources>
