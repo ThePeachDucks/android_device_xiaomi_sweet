@@ -274,7 +274,9 @@ PRODUCT_PACKAGES += \
     FrameworksResTarget \
     WifiResTarget \
     WifiOverlayM2101K6G \
-    WifiOverlayM2101K6I
+    WifiOverlayM2101K6I \
+    SettingsProviderM2101K6G \
+    SettingsProviderM2101K6I
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
