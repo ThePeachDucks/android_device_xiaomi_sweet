@@ -168,6 +168,11 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.display.qdcm.disable_factory_mode=1 \
     vendor.display.qdcm.mode_combine=1
 
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.sys.sf.color_saturation=1.0 \
+    persist.sys.sf.native_mode=2 \
+    persist.sys.sf.color_mode=9
+
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/display/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
