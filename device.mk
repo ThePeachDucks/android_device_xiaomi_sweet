@@ -19,6 +19,18 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
+# Overlay
+PRODUCT_PACKAGES += \
+    AOSPASweetFrameworks \
+    AOSPASweetSettings \
+    AOSPASweetSystemUI \
+    SweetFrameworks \
+    SweetSystemUI
+
+# QTI Component
+TARGET_COMMON_QTI_COMPONENTS := \
+    overlay
+
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
