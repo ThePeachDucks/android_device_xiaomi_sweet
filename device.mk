@@ -157,6 +157,11 @@ PRODUCT_COPY_FILES += \
 
 # Overlay
 PRODUCT_PACKAGES += \
+    AOSPASweetFrameworks \
+    AOSPASweetSettings \
+    AOSPASweetSystemUI \
+    SweetFrameworks \
+    SweetSystemUI \
     SweetWifiOverlay
 
 # Partitions
