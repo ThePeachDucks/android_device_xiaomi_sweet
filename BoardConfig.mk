@@ -11,6 +11,9 @@ DEVICE_PATH := device/xiaomi/sweet
 # Inherit from proprietary files
 include vendor/xiaomi/sweet/BoardConfigVendor.mk
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
@@ -22,6 +25,12 @@ TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a76
+
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 
 # Audio
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
@@ -45,9 +54,24 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 TARGET_CAMERA_BOOTTIME_TIMESTAMP := true
 
+# Density
+TARGET_SCREEN_DENSITY := 440
+
+# Display
+TARGET_PANEL_DIMENSION_MULTIPLIER := 0.1
+
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
+
+# FM
+BOARD_HAVE_QCOM_FM := true
+
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_sweet
 TARGET_RECOVERY_DEVICE_MODULES := libinit_sweet
+
+# GPS
+LOC_HIDL_VERSION := 4.0
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
@@ -55,6 +79,9 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
 DEVICE_MATRIX_FILE := device/qcom/common/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
+
+# Input
+TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY := 304
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -77,6 +104,10 @@ BOARD_KERNEL_CMDLINE += kpti=off
 
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+
+# Media
+TARGET_USES_ION := true
+TARGET_DISABLED_UBWC := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
@@ -116,6 +147,12 @@ TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
+
+# Properties
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/properties/system.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/properties/system_ext.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
