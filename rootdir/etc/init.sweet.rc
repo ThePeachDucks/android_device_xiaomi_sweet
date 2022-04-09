@@ -16,6 +16,76 @@
 on init && property:ro.boot.hwc=GLOBAL
     start nqnfc_2_0_hal_service
 
+on init
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+
+    # Boot time fs tuning
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/scheduler cfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/sde/queue/iostats 0
+    write /sys/block/sde/queue/scheduler cfq
+    write /sys/block/sde/queue/iosched/slice_idle 0
+    write /sys/block/sde/queue/read_ahead_kb 2048
+    write /sys/block/sde/queue/nr_requests 256
+
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+
+    # Setup permission for Power HAL
+    chown system system /dev/stune/top-app/schedtune.boost
+    chown system system /dev/cpu_dma_latency
+
+    chmod 0664 /dev/stune/top-app/schedtune.boost
+    chmod 0664 /dev/cpu_dma_latency
+
+    # Add a cpuset for the camera daemon
+    # We want all cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon
+    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
+    chmod 0660 /dev/cpuset/camera-daemon/tasks
+
+    chown system camera /dev/drv8846_dev
+    chown system camera /dev/akm09970
+    chmod 0660 /dev/drv8846_dev
+    chmod 0660 /dev/akm09970
+
+on fs
+    mount_all --early /vendor/etc/fstab.qcom
+
+    restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/audio 0755 system system
+    mkdir /mnt/vendor/persist/camera 0777 root root
+    chmod 644 /mnt/vendor/persist/audio/us_manual_cal
+    chmod 644 /persist/audio/us_manual_cal
+
+on late-fs
+    wait_for_prop hwservicemanager.ready true
+    exec_start wait_for_keymaster
+    mount_all --late /vendor/etc/fstab.qcom
+
+service mi_thermald /system/vendor/bin/mi_thermald
+    class core
+    user root
+    group system
+    seclabel u:r:mi_thermald:s0
+
+on post-fs-data
+    mkdir /data/vendor/nnhal 0700 system system
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
+
 on property:ro.boot.hwc=INDIA
     mount none /dev/null /vendor/etc/permissions/android.hardware.nfc.hcef.xml bind
     mount none /dev/null /vendor/etc/permissions/android.hardware.nfc.hce.xml bind
@@ -23,10 +93,137 @@ on property:ro.boot.hwc=INDIA
     mount none /dev/null /vendor/etc/permissions/android.hardware.nfc.xml bind
     mount none /dev/null /vendor/etc/permissions/com.android.nfc_extras.xml bind
     mount none /dev/null /vendor/etc/permissions/com.nxp.mifare.xml bind
+    
+on boot
+    start rmt_storage
+    start rfs_access
+    start mi_thermald
+
+    # Elliptic
+    chmod 0666 /dev/elliptic0
+    chmod 0666 /dev/elliptic1
+
+    # Touch funtions permissions setting
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+    chmod 0664 /sys/class/touch/touch_dev/palm_sensor
+
+    # Set thermal mode to evaluation
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig 10
+
+    # Set xiaomi touch permissions
+    chown system system /dev/xiaomi-touch
+    chmod 0660 /dev/xiaomi-touch
+
+    # USB controller configuration
+    setprop vendor.usb.rndis.func.name "gsi"
+    setprop vendor.usb.rmnet.func.name "gsi"
+    setprop vendor.usb.rmnet.inst.name "rmnet"
+    setprop vendor.usb.dpl.inst.name "dpl"
+    setprop vendor.usb.qdss.inst.name "qdss"
+    setprop sys.usb.configfs 1
+
+on property:sys.boot_completed=1
+    # Set allocstall_threshold to 0
+    # Set swappiness to 100
+    write /sys/module/vmpressure/parameters/allocstall_threshold 0
+    write /proc/sys/vm/swappiness 100
+
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.zram
+
+    # Runtime fs tuning
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/sda/queue/iostats 1
+    write /sys/block/sde/queue/read_ahead_kb 128
+    write /sys/block/sde/queue/nr_requests 128
+    write /sys/block/sde/queue/iostats 1
+
+    # Disable serial console
+    setprop init.svc.console stopped
+
+service vendor.pd_mapper /vendor/bin/pd-mapper
+    class core
+    user system
+    group system
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+    ioprio rt 4
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    writepid /dev/cpuset/system-background/tasks
+    disabled
+
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
+
+on property:sys.shutdown.requested=*
+    stop vendor.per_proxy
+
+on charger
+    setprop sys.usb.controller a600000.dwc3
+    setprop sys.usb.configfs 1
+
+    wait /dev/block/platform/soc/1da4000.ufshc/by-name/system
+    mount ext4 /dev/block/platform/soc/1da4000.ufshc/by-name/system / ro barrier=1
+
+    wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist nosuid nodev barrier=1
+
+    start vendor.hvdcp_opti
+    start vendor.thermal-engine
+    start vendor.qcom-post-boot
+    start vendor.power_off_alarm
+
+service vendor.thermal-engine /vendor/bin/thermal-engine
+    class main
+    user root
+    socket thermal-send-client stream 0666 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0666 system system
+    socket thermal-send-rule stream 0660 system system
+    group root
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
+    class main
+    user root
+    group system wakelock
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.remosaic_daemon /vendor/bin/remosaic_daemon
+    class late_start
+    user camera
+    group camera
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.nv_mac /vendor/bin/nv_mac
+    class main
+    user system
+    group system inet net_admin wifi net_raw
+    oneshot
+
+service vendor.hwcomposer-2-4 /vendor/bin/hw/android.hardware.graphics.composer@2.4-service
+    override
+    class hal animation
+    user system
+    group graphics drmrpc
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger
+    writepid /dev/cpuset/system-background/tasks
+    socket pps stream 0660 system system
 
 service nqnfc_2_0_hal_service /vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
     class hal
     user nfc
     group nfc
     disabled
-
