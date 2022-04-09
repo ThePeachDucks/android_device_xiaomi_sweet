@@ -1,0 +1,7 @@
+prebuilt_etc_xml {
+    name: "manifest-nfc",
+    src: "manifest-nfc.xml", 
+    filename_from_src: true,
+    sub_dir: "vintf/manifest",
+    soc_specific: true,
+}
