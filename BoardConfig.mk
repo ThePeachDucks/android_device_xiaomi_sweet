@@ -7,3 +7,6 @@
 BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/sweet
+
+# Inherit from proprietary files
+include vendor/xiaomi/sweet/BoardConfigVendor.mk
