@@ -20,6 +20,9 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2.3-service\.xiaomi_sweet u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.lights-service\.xiaomi_sweet               u:object_r:hal_light_default_exec:s0
 
+# Health
+/sys/devices/platform/soc/88c000.i2c/i2c-2/2-0065/power_supply/bq2597x-standalone(/.*)?                                                         u:object_r:vendor_sysfs_battery_supply:s0
+
 # Remosaic
 /vendor/bin/remosaic_daemon                                          u:object_r:remosaic_daemon_exec:s0
 
