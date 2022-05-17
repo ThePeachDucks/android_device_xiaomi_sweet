@@ -37,6 +37,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/nfc \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/power_supply \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/sensors \
+    device/xiaomi/sweet/sepolicy/vendor/xiaomi/soter \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/thermald \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/touch \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/touchfeature \
