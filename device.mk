@@ -280,6 +280,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Overlay
 PRODUCT_PACKAGES += \
     AOSPASweetFrameworks \
+    AOSPASweetSystemUI \
     SweetFrameworks \
     SweetSettings \
     SweetSystemUI \
