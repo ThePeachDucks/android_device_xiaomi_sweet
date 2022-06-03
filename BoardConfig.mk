@@ -134,5 +134,8 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# SEPolicy
+-include device/xiaomi/sweet/sepolicy/sweet-sepolicy.mk
+
 # Inherit from proprietary files
 include vendor/xiaomi/sweet/BoardConfigVendor.mk
