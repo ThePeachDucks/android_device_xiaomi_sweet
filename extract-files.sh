@@ -53,6 +53,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+    vendor/lib64/camera/components/com.qti.node.watermark.so)
+        $PATCHELF_TOOL --add-needed "libpiex_shim.so" "${2}"
+        ;;
     esac
 }
 
