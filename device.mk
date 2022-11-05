@@ -67,6 +67,13 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi
 
+# Overlays
+PRODUCT_PACKAGES += \
+    AOSPASweetFrameworks \
+    SweetFrameworks \
+    SweetSettings \
+    SweetSystemUI
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom
