@@ -79,6 +79,10 @@ DEVICE_MATRIX_FILE += \
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_sweet
+TARGET_RECOVERY_DEVICE_MODULES := libinit_sweet
+
 # Kernel
 BOARD_KERNEL_CMDLINE := \
     androidboot.fstab_suffix=qcom \
