@@ -70,6 +70,9 @@ BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # HIDL
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/configs/hidl/manifest.xml
+
 DEVICE_MATRIX_FILE += \
     device/qcom/common/compatibility_matrix.xml
 
