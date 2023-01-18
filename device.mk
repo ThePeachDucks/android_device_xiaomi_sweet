@@ -22,6 +22,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
+# Emulated storage
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # Inherrit from proprietary-files
 $(call inherit-product, vendor/xiaomi/sweet/sweet-vendor.mk)
 
@@ -32,6 +35,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
+
+# ANT+
+PRODUCT_PACKAGES += \
+    com.dsi.ant@1.0.vendor
 
 # Attestation
 PRODUCT_COPY_FILES += \
@@ -243,6 +250,10 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     libsuspend
 
+# Config Store
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # Consumer IR
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
@@ -251,9 +262,37 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
 
+# Data
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.vendor.data.mode=concurrent \
+    ro.vendor.use_data_netmgrd=true
+
 # Display
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.display.ad=1 \
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
+    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
+    ro.vendor.display.sensortype=2 \
+    vendor.display.disable_idle_time_hdr=1 \
+    vendor.display.disable_idle_time_video=1 \
+    vendor.display.enable_force_split=1 \
+    vendor.display.enable_null_display=0 \
+    vendor.display.idle_time=0 \
+    vendor.display.idle_time_inactive=0 \
+    vendor.display.qdcm.disable_factory_mode=1 \
+    vendor.display.qdcm.mode_combine=1
+
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/display/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+# DPM
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.dpm.nsrm.bkg.evt=3955 \
+    persist.vendor.dpmhalservice.enable=1
+
+# DRM
+PRODUCT_VENDOR_PROPERTIES += \
+    drm.service.enabled=true
 
 # Fastboot
 PRODUCT_PACKAGES += \
@@ -272,6 +311,13 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom_ramdisk
 
+# GPS
+LOC_HIDL_VERSION = 4.0
+
+# Gatekeeper
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.gatekeeper.disable_spu=true
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
@@ -284,20 +330,74 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor \
     libhidltransport.vendor
 
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.4-service.clearkey \
+    android.hardware.drm@1.4.vendor \
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.keymaster@4.1.vendor \
+    android.hardware.neuralnetworks@1.3.vendor
+
+# IMS
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout)
+
+# Keymaster
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.crypto.allow_encrypt_override=true \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    ro.crypto.volume.metadata.method=dm-default-key \
+    ro.crypto.volume.options=::v2 \
+    ro.hardware.keystore_desede=true
+
+PRODUCT_PACKAGES += \
+    libkeymaster_messages.vendor
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Netflix
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.netflix.bsp_rev=Q8250-19134-1
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Perf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/perf/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
+    $(LOCAL_PATH)/configs/perf/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostsconfig.xml \
+    $(LOCAL_PATH)/configs/perf/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml
 
 # Platform
 MSMSTEPPE := sm6150
 TARGET_BOARD_PLATFORM := $(MSMSTEPPE)
+
+# QCRIL
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.radio.NO_STAPA=1 \
+    persist.radio.VT_CAM_INTERFACE=1 \
+    persist.radio.VT_HYBRID_ENABLE=1 \
+    ril.subscription.types=RUIM \
+    ro.telephony.default_cdma_sub=0 \
+    ro.telephony.default_network=22,22 \
+    telephony.lteOnCdmaDevice=1
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.radio.cdma_cap=true \
+    persist.vendor.radio.data_con_rprt=1 \
+    persist.vendor.radio.data_ltd_sys_ind=1 \
+    persist.vendor.radio.dynamic_sar=1 \
+    persist.vendor.radio.force_ltd_sys_ind=1 \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.radio.manual_nw_rej_ct=1
 
 # Sensors
 PRODUCT_VENDOR_PROPERTIES += \
@@ -329,6 +429,26 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=QTI \
     ro.soc.model=SM7150
 
+# Storage
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true \
+    ro.incremental.enable=yes
+
+# Subsystem silent restart
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# SurfaceFlinger
+PRODUCT_VENDOR_PROPERTIES += \
+    debug.sf.disable_backpressure=1 \
+    debug.sf.enable_egl_image_tracker=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.frame_rate_multiple_threshold=60 \
+    debug.sf.latch_unsignaled=1 \
+    ro.surface_flinger.use_content_detection_for_refresh_rate=true \
+    ro.surface_flinger.set_idle_timer_ms=4000 \
+    ro.surface_flinger.set_touch_timer_ms=4000
+
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti
@@ -351,7 +471,14 @@ PRODUCT_COPY_FILES += \
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
+# WFD
+PRODUCT_PACKAGES += \
+    libwfdaac_vendor
+
 # WiFi
+PRODUCT_PACKAGES += \
+    libwpa_client
+
 PRODUCT_SYSTEM_PROPERTIES += \
     wifi.interface=wlan0
 
