@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+BOARD_VENDOR := xiaomi
+
 DEVICE_PATH := device/xiaomi/sweet
 
 # Architecture
@@ -124,3 +126,6 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+
+# Inherit from proprietary files
+include vendor/xiaomi/sweet/BoardConfigVendor.mk
