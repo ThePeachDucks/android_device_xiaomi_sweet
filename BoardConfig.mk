@@ -65,6 +65,9 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_SCREEN_DENSITY := 440
 
 # HIDL
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/configs/hidl/manifest.xml
+
 DEVICE_MATRIX_FILE += \
     device/qcom/common/compatibility_matrix.xml
 
