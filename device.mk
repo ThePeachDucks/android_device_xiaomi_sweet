@@ -432,6 +432,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AOSPASweetFrameworks \
     AOSPASweetSystemUI \
+    SweetCarrierConfig \
     SweetFrameworks \
     SweetSettings \
     SweetSystemUI \
