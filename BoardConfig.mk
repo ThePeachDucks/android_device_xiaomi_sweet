@@ -65,8 +65,12 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_SCREEN_DENSITY := 440
 
 # HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(DEVICE_PATH)/configs/hidl/xiaomi_vendor_framework_compatibility_matrix.xml
+
 DEVICE_MANIFEST_FILE += \
-    $(DEVICE_PATH)/configs/hidl/manifest.xml
+    $(DEVICE_PATH)/configs/hidl/manifest.xml \
+    $(DEVICE_PATH)/configs/hidl/xiaomi_manifest.xml
 
 DEVICE_MATRIX_FILE += \
     device/qcom/common/compatibility_matrix.xml
