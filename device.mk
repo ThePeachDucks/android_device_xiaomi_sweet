@@ -34,6 +34,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
+# Fstab
+PRODUCT_PACKAGES += \
+    fstab.qcom
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
