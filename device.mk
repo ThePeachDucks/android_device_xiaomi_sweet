@@ -56,8 +56,8 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
-    fs_config_files    
-    
+    fs_config_files
+
 # Attestation
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
@@ -66,6 +66,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom
 
 # Verified Boot
 PRODUCT_COPY_FILES += \
