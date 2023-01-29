@@ -36,7 +36,8 @@ PRODUCT_COPY_FILES += \
 
 # Fstab
 PRODUCT_PACKAGES += \
-    fstab.qcom
+    fstab.qcom \
+    fstab.qcom_ramdisk
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
