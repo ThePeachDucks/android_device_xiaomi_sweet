@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+BOARD_VENDOR := xiaomi
+
 DEVICE_PATH := device/xiaomi/sweet
 
 # Architecture
@@ -64,6 +66,7 @@ TARGET_SCREEN_DENSITY := 440
 
 # Hacks
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Init
@@ -129,3 +132,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+
+# Inherit from proprietary files
+include vendor/xiaomi/sweet/BoardConfigVendor.mk
