@@ -399,6 +399,23 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.radio.force_on_dc=true \
     persist.vendor.radio.manual_nw_rej_ct=1
 
+# QTI
+TARGET_COMMON_QTI_COMPONENTS += \
+    adreno \
+    av \
+    bt \
+    display \
+    gps \
+    init \
+    media \
+    overlay \
+    perf \
+    telephony \
+    usb \
+    vibrator \
+    wfd \
+    wlan
+
 # Sensors
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.sensors.allow_non_default_discovery=true \
