@@ -27,8 +27,10 @@
 #
 #
 
+import /vendor/etc/init/hw/init.xiaomi.rc
+
 on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_stub audio_wcd_core audio_wsa881x audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_wcd938x audio_wcd938x_slave audio_machine_kona
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_q6_pdr audio_q6_notifier audio_snd_event audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_pinctrl_lpi audio_swr audio_platform audio_hdmi audio_stub audio_wcd_core audio_wsa881x audio_bolero_cdc audio_wsa_macro audio_va_macro audio_rx_macro audio_tx_macro audio_wcd938x audio_wcd938x_slave audio_tfa98xx audio_aw882xx audio_machine_kona
     write /proc/sys/kernel/sched_boost 1
 
 on init
@@ -106,7 +108,7 @@ on boot && property:persist.vendor.usb.controller.default=*
 
 on charger
     start vendor.power_off_alarm
-    setprop sys.usb.controller a600000.dwc3
+    setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
 service vendor.lowi /vendor/bin/sscrpcd
@@ -167,3 +169,20 @@ service dcvs-sh /vendor/bin/init.qti.dcvs.sh
 
 on property:vendor.dcvs.prop=1
    start dcvs-sh
+
+on property:vendor.audio.cit.spkcal.copy=true
+    copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
+    copy /data/vendor/cit/aw88263_chk.txt /mnt/vendor/persist/audio/aw88263_chk.txt
+    chmod 666 /mnt/vendor/persist/audio/tfa9894_chk.txt
+    chmod 666 /mnt/vendor/persist/audio/aw88263_chk.txt
+service audioshell_service /vendor/bin/audioshell_service
+    oneshot
+    disabled
+    
+service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
+    override
+    class hal
+    interface android.hardware.contexthub@1.0::IContexthub default
+    user system
+    group system
+    disabled
