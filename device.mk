@@ -348,8 +348,12 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    init.mi.usb.sh \
     init.qti.dcvs.sh \
-    init.target.rc
+    init.target.rc \
+    init.xiaomi.rc \
+    init.xiaomi.perf.rc \
+    ueventd.xiaomi.rc
 
 # Keylayout
 PRODUCT_COPY_FILES += \
