@@ -44,8 +44,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Init
 PRODUCT_PACKAGES += \
+    init.mi.usb.sh \
     init.qti.dcvs.sh \
-    init.target.rc
+    init.target.rc \
+    init.xiaomi.rc \
+    init.xiaomi.perf.rc \
+    ueventd.xiaomi.rc
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
