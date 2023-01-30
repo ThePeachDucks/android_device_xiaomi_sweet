@@ -288,6 +288,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.radio.force_on_dc=true \
     persist.vendor.radio.manual_nw_rej_ct=1
 
+# QTI
+TARGET_COMMON_QTI_COMPONENTS := all
+
 # Sensors
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.sensors.allow_non_default_discovery=true \
