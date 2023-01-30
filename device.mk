@@ -58,6 +58,23 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 MSMSTEPPE := sm6150
 TARGET_BOARD_PLATFORM := $(MSMSTEPPE)
 
+# QTI
+TARGET_COMMON_QTI_COMPONENTS := \
+    adreno \
+    alarm \
+    av \
+    bt \
+    charging \
+    display \
+    gps \
+    init \
+    keymaster \
+    media \
+    perf \
+    telephony \
+    usb \
+    wfd
+
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
