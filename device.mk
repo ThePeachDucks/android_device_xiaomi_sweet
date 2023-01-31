@@ -281,6 +281,14 @@ PRODUCT_PACKAGES += \
     SettingsProviderM2101K6G \
     SettingsProviderM2101K6I
 
+# ParanoidDoze
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.sensor.pickup=xiaomi.sensor.pickup \
+    ro.sensor.proximity=true
+
+PRODUCT_PACKAGES += \
+    ParanoidDoze
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
