@@ -26,6 +26,13 @@ cc_library_static {
 }
 
 prebuilt_etc {
+    name: "init.sweet.rc",
+    src: "init.sweet.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.target.rc",
     src: "init.target.rc",
     sub_dir: "init/hw",

@@ -277,6 +277,8 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.netflix.bsp_rev=Q8250-19134-1
 
 # NFC
+TARGET_NFC_SKU := sweet
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
