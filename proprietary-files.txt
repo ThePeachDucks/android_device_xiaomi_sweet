@@ -782,6 +782,40 @@ vendor/lib64/unnhal-acc-common.so|e37d2113f99506f1de85902a0fdee0b443342942
 vendor/lib64/unnhal-acc-hta.so|7e11ddb04581f172e69b3778e0b803ef5ec39382
 vendor/lib64/unnhal-acc-hvx.so|3f61cfe064965ea1a5fc288b133da1802d36b608
 
+# NFC - from sweet V12.0.6.0.RKFMIXM
+system_ext/lib/vendor.nxp.hardware.nfc@1.0.so|2cbd2166ecfcbda02da1dcebf6ff25ddb1b26361
+system_ext/lib/vendor.nxp.hardware.nfc@1.1.so|db5dd74d0c560dbeeb363a8e0fe874be371adecc
+system_ext/lib/vendor.nxp.hardware.nfc@2.0.so|f8a34a0c0867af86104ad173f7213d9a2409339e
+system_ext/lib64/vendor.nxp.hardware.nfc@1.0.so|bc0b2d9806f52b4b55c02935a84bc159a247963c
+system_ext/lib64/vendor.nxp.hardware.nfc@1.1.so|dd73a0921d90a5be9455c281a1ae8fc8875e791c
+system_ext/lib64/vendor.nxp.hardware.nfc@2.0.so|9c4bf88b7e90322c6c5c717e83171dc51fe8feaf
+vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service|23c58b8d09e646f8de3e9c0fb6f594de5452ed20
+vendor/bin/nqnfcinfo|951682d9aff8902ff2ff2271a0c346584a8c8c58
+vendor/etc/init/vendor.nxp.hardware.nfc@2.0-service.rc|ef06783d034eb2db2ceded7f2333f189feb42afb
+vendor/etc/libnfc-mtp-SN100.conf|a9570f1f620dcad9b9d5fe24eb3255c3f13c6099
+vendor/etc/libnfc-mtp-SN100_38_4MHZ.conf|a9570f1f620dcad9b9d5fe24eb3255c3f13c6099
+vendor/etc/libnfc-nxp-JAPAN.conf|0dd0a61ee1a845a34591c61e28f83d5675c3eabc
+vendor/etc/libnfc-nxp-pnscr.conf|cf918ce5ad31f70765228625089e417b147e3577
+vendor/etc/libnfc-nxp_RF.conf|678ba90c9f0451f6f3b26c79d1ef1a5d7fb02ce9
+vendor/etc/libnfc-qrd-SN100.conf|a9570f1f620dcad9b9d5fe24eb3255c3f13c6099
+vendor/etc/libnfc-qrd-SN100_38_4MHZ.conf|a9570f1f620dcad9b9d5fe24eb3255c3f13c6099
+vendor/etc/permissions/com.android.nfc_extras.xml|66fa1c16fb57ca05c577b9f0d896be57b1bb3d1e
+vendor/etc/permissions/com.nxp.mifare.xml|3475f7cb552927e8599b1b881b7339c1cda67994
+vendor/etc/sn100u_nfcon.pnscr|92629e8720cff472877706d3b0eec32259727a80
+vendor/lib/hal_libnfc.so|ee0a9a97886f0fad46ef7a9a7774d44b21a0eb9f
+vendor/lib/libpn553_fw.so|ec325ad8028c573638a6f6902c4aec73c4ec00fa
+vendor/lib/nfc_nci.nqx.default.hw.so|ff5007f8faa4f1c861f5582ee712d6afc6008c51
+vendor/lib/vendor.nxp.hardware.nfc@1.0.so|79b8c816080db4fa8036727db20c7f3b4c9839c1
+vendor/lib/vendor.nxp.hardware.nfc@1.1.so|a24de5dd5c86766292296eea197af20536f86c23
+vendor/lib/vendor.nxp.hardware.nfc@2.0.so|2118bc2e64dd5fbfa1eb674dfbdd0a8a2c6b4e78
+vendor/lib/vendor.nxp.nxpnfclegacy@1.0.so|4b30ee78d9984dfc55268f555bf8fcba5d1d8590
+vendor/lib64/hal_libnfc.so|ce4d3a0c160edc177c6b79b01896a558f23a666e
+vendor/lib64/nfc_nci.nqx.default.hw.so|4f56d938650c6250882232ebde95a53278eec5db
+vendor/lib64/vendor.nxp.hardware.nfc@1.0.so|1f442f8af82b631491ba2f1ae29b5372b86eb547
+vendor/lib64/vendor.nxp.hardware.nfc@1.1.so|447a4263d674fbfd46b2116a3f860c05eccf83c2
+vendor/lib64/vendor.nxp.hardware.nfc@2.0.so|52060c3d39e92c7138eb10f41b582012945ed919
+vendor/lib64/vendor.nxp.nxpnfclegacy@1.0.so|f49cb9321895aa2d0249a4f48ba4ca094589ba3c
+
 # OMX - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
 vendor/lib/libAlacSwDec.so|cb41b0945e57b349e6aa476cdac4315ee13a2def
 vendor/lib/libApeSwDec.so|ce425ef9372ed6635e313422b3578f77b90ff526
