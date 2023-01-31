@@ -98,6 +98,9 @@ DEVICE_MANIFEST_FILE += \
 DEVICE_MATRIX_FILE += \
     $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 
+ODM_MANIFEST_SWEET_FILES += \
+    $(DEVICE_PATH)/configs/hidl/manifest_sweet.xml
+
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_sweet
 TARGET_RECOVERY_DEVICE_MODULES := libinit_sweet
@@ -131,6 +134,9 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 LLVM_IAS=1
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
+
+# NFC
+ODM_MANIFEST_SKUS += sweet
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
