@@ -150,5 +150,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
+# SEPolicy
+-include device/xiaomi/sweet/sepolicy/sweet-sepolicy.mk
+
 # Inherit from proprietary files
 include vendor/xiaomi/sweet/BoardConfigVendor.mk
