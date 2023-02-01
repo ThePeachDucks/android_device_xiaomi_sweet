@@ -73,6 +73,9 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 # Display
 TARGET_SCREEN_DENSITY := 440
 
+# FM
+BOARD_HAVE_QCOM_FM := true
+
 # Gestures
 TARGET_TAP_TO_WAKE_NODE := "/dev/xiaomi-touch"
 
