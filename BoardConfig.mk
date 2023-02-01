@@ -31,6 +31,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a76
 # Assert
 TARGET_OTA_ASSERT_DEVICE := sweet,sweetin
 
+# Audio
+AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+
 # AVB
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
@@ -63,6 +66,9 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 
 # Display
 TARGET_SCREEN_DENSITY := 440
+
+# FM
+BOARD_HAVE_QCOM_FM := true
 
 # Gestures
 TARGET_TAP_TO_WAKE_NODE := "/dev/xiaomi-touch"
