@@ -628,6 +628,11 @@ vendor/firmware/ipa_fws.b04
 vendor/firmware/ipa_fws.elf
 vendor/firmware/ipa_fws.mdt
 
+# FM - from LA.QSSI.13.0.r1-05500-qssi.0
+-system_ext/lib64/fm_helium.so|623a78dfe8f73808158bc88116cd3204588aa126 
+-system_ext/lib64/libfm-hci.so|605591d98f2a98773209ae67f374e726f39eeda4 
+-system_ext/lib64/vendor.qti.hardware.fm@1.0.so;MODULE=vendor.qti.hardware.fm@1.0_system_ext|474a9399822c89409cd001095ad12eacfd079fba
+
 # FM - MIUI
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE=vendor.qti.hardware.fm@1.0_vendor
