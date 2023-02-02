@@ -137,6 +137,14 @@ on boot
     chmod 0666 /dev/input/event2
     chmod 0666 /dev/qseecom
 
+    # Set thermal mode to evaluation
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig 10
+
+    # Touch funtions permissions setting
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+    chmod 0664 /sys/class/touch/touch_dev/palm_sensor
+
     # USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"
@@ -144,10 +152,6 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss"
     setprop sys.usb.configfs 1
-
-    # Set thermal mode to evaluation
-    chown system system /sys/class/thermal/thermal_message/sconfig
-    write /sys/class/thermal/thermal_message/sconfig 10
 
     # Xiaomi-touch
     chown system system /dev/xiaomi-touch
