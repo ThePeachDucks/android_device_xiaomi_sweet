@@ -95,6 +95,10 @@ on boot
     start rfs_access
     start mi_thermald
 
+    # Elliptic
+    chmod 0666 /dev/elliptic0
+    chmod 0666 /dev/elliptic1
+
     # Fingerprint HAL's related permissions
     # FPC
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
