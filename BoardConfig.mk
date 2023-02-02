@@ -98,13 +98,16 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_sweet
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
+    androidboot.console=ttyMSM0 \
     androidboot.fstab_suffix=qcom \
     androidboot.hardware=qcom \
     androidboot.init_fatal_reboot_target=recovery \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
     cgroup.memory=nokmem,nosocket \
-    kpti=off
+    console=ttyMSM0,115200n8 \
+    earlycon=msm_geni_serial,0x880000 \
+    kpti=off \
     loop.max_part=7 \
     lpm_levels.sleep_disabled=1 \
     reboot=panic_warm \
