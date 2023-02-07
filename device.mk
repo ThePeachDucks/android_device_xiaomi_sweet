@@ -283,7 +283,8 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.display.idle_time=0 \
     vendor.display.idle_time_inactive=0 \
     vendor.display.qdcm.disable_factory_mode=1 \
-    vendor.display.qdcm.mode_combine=1
+    vendor.display.qdcm.mode_combine=1 \
+    vendor.display.skip_refresh_rate_change=1
 
 PRODUCT_VENDOR_PROPERTIES += \
     persist.sys.sf.color_saturation=1.0 \
