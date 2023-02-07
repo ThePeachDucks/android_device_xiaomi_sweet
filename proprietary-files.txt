@@ -537,7 +537,6 @@ vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so|33f0994f049459b6130d11c7c
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libhdr_tm.so
 vendor/lib64/libqseed3.so
-vendor/lib64/libsdedrm.so
 vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-colormgr-algo.so
 vendor/lib64/libsdm-diag.so
@@ -574,6 +573,9 @@ vendor/lib64/vendor.display.color@1.1.so
 vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.color@1.3.so
 vendor/lib64/vendor.display.postproc@1.0.so
+
+# Display (SDE) - from NX267J
+vendor/lib64/libsdedrm.so|582910d21139781ad9e414c35207584f51e035e2
 
 # DPM - from LA.UM.9.1.r1-11500.02-SMxxx0.QSSI12.0
 vendor/bin/dpmQmiMgr|61a421804559b0e461439c19088acc01b871982a
