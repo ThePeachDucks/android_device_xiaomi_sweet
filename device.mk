@@ -58,8 +58,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.common@4.0-util \
     android.hardware.audio.common@5.0-util \
     android.hardware.audio.common@6.0-util
-    
-PRODUCT_PACKAGES += \    
+
+PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     audio.a2dp.default \
     audio.bluetooth.default \
@@ -193,14 +193,14 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@2.0.vendor
 
 PRODUCT_PACKAGES += \
-    libbthost_if        
-    
+    libbthost_if
+
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.vendor.bt.a2dp.aac_whitelist=false \
     persist.vendor.btstack.enable.twsplus=true \
     persist.vendor.btstack.enable.twsplussho=true \
     vendor.bluetooth.soc=cherokee
-    
+
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.bluetooth.modem_nv_support=true \
     persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive \
@@ -212,7 +212,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.qcom.bluetooth.twsp_state.enabled=false \
     ro.vendor.bluetooth.wipower=false \
     vendor.qcom.bluetooth.soc=cherokee
-    
+
 # Camera
 PRODUCT_SYSTEM_PROPERTIES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,org.lineageos.snap,com.android.camera2
@@ -264,6 +264,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
+
+# ContextHub
+PRODUCT_PACKAGES += \
+    android.hardware.contexthub@1.0-impl.generic \
+    android.hardware.contexthub@1.0-service
 
 # Data
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
@@ -349,7 +354,6 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor
 
 PRODUCT_PACKAGES += \
-    android.frameworks.sensorservice@1.0.vendor \
     android.hardware.drm@1.4-service.clearkey \
     android.hardware.drm@1.4.vendor \
     android.hardware.gatekeeper@1.0.vendor \
