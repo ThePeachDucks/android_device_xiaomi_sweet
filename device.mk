@@ -265,6 +265,11 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
 
+# ContextHub
+PRODUCT_PACKAGES += \
+    android.hardware.contexthub@1.0-impl.generic \
+    android.hardware.contexthub@1.0-service
+
 # Data
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.vendor.data.mode=concurrent \
