@@ -14,4 +14,5 @@ allow hal_audio_default sound_device:chr_file rw_file_perms;
 binder_call(hal_audio_default, hal_sensors_default)
 
 # Allow Audio hal to set audio properties
+get_prop(hal_audio_default, elliptic_ultrasound_prop)
 set_prop(hal_audio_default, vendor_audio_prop)

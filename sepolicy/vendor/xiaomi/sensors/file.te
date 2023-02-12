@@ -1,2 +1,5 @@
+# Elliptic
+type vendor_elliptic_device, dev_type;
+
 # IIO sysfs file
 type vendor_sysfs_iio, fs_type, sysfs_type;
