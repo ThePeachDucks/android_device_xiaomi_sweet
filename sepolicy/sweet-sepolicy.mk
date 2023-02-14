@@ -31,6 +31,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/bluetooth \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/camera \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/fingerprint \
+    device/xiaomi/sweet/sepolicy/vendor/xiaomi/health \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/ir \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/light \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/modem \
@@ -43,6 +44,5 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/touch \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/touchfeature \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/usb \
-    device/xiaomi/sweet/sepolicy/vendor/xiaomi/wireless \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/wlan
 
