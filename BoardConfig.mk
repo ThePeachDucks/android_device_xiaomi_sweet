@@ -79,6 +79,12 @@ BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(DEVICE_PATH)/configs/hidl/device_framework_compatibility_matrix.xml
+
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/configs/hidl/manifest.xml
+
 DEVICE_MATRIX_FILE += \
     $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 
