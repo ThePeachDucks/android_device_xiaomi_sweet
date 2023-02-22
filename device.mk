@@ -436,8 +436,8 @@ PRODUCT_PACKAGES += \
     SweetFrameworks \
     SweetSettings \
     SweetSystemUI \
+    SweetWifiOverlay \
     FrameworksResTarget \
-    WifiResTarget \
     WifiOverlayM2101K6G \
     WifiOverlayM2101K6I \
     SettingsProviderM2101K6G \
