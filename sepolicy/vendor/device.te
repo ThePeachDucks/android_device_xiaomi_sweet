@@ -1,0 +1,11 @@
+# Audio
+type vendor_audio_socket, file_type;
+
+# Display
+type touchfeature_device, dev_type;
+
+# Fingerprint
+type fingerprint_device, dev_type;
+
+# IR
+type ir_spi_device, dev_type;

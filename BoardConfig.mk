@@ -161,5 +161,10 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
+# SEPolicy
+TARGET_SEPOLICY_DIR := msmsteppe
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+
 # Inherit from proprietary files
 include vendor/xiaomi/sweet/BoardConfigVendor.mk
