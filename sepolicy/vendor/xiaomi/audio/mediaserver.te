@@ -1,2 +1,2 @@
-# Allow mediaserver to r/w to sound device
-allow mediaserver sound_device:chr_file rw_file_perms;
+# Allow mediaserver to r/w to ultrasound device
+allow mediaserver ultrasound_device:chr_file rw_file_perms;
