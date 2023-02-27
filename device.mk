@@ -273,6 +273,7 @@ PRODUCT_PACKAGES += \
 # Data
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.vendor.data.mode=concurrent \
+    ro.telephony.iwlan_operation_mode=legacy \
     ro.vendor.use_data_netmgrd=true
 
 # Display
