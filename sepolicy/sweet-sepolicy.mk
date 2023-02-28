@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Private Sepolicy
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
+    device/xiaomi/sweet/sepolicy/private
+
 # Xiaomi
 BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/audio \
