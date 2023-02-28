@@ -1,2 +1,12 @@
 # Allow audio hal to read and write /sys/class/smartpa/re25_calib
 allow hal_audio_default sysfs_re25_calib:file rw_file_perms;
+
+# Allow audio hal to mount vendor file
+allow hal_audio_default mnt_vendor_file:dir search;
+r_dir_file(hal_audio_default, vendor_persist_audio_file)
+
+# Allow audio hal to read and write /vendor/audio/socket
+allow hal_audio_default vendor_audio_socket:sock_file rw_file_perms;
+
+# Allow audio hal to set vendor audio properties
+set_prop(hal_audio_default, vendor_audio_prop)
