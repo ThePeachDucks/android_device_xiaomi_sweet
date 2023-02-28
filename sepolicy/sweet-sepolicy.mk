@@ -15,4 +15,5 @@
 # Xiaomi
 BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/audio \
-    device/xiaomi/sweet/sepolicy/vendor/xiaomi/sensors
+    device/xiaomi/sweet/sepolicy/vendor/xiaomi/sensors \
+    device/xiaomi/sweet/sepolicy/vendor/xiaomi/wlan
