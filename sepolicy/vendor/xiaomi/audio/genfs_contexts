@@ -1,0 +1,2 @@
+# Audio
+genfscon sysfs /class/smartpa/re25_calib                                           u:object_r:sysfs_re25_calib:s0
