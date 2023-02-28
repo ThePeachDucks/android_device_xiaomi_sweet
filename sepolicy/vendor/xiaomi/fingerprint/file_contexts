@@ -1,0 +1,4 @@
+# Fingerprint
+/data/vendor/fortsense(/.*)?                              u:object_r:fingerprint_data_file:s0 
+/data/vendor/fpc(/.*)?                                    u:object_r:fingerprint_data_file:s0
+/dev/fortsense_fp                                         u:object_r:fingerprint_device:s0
