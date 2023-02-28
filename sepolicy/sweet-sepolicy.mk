@@ -15,6 +15,7 @@
 # Xiaomi
 BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/audio \
+    device/xiaomi/sweet/sepolicy/vendor/xiaomi/batterysecret \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/fingerprint \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/power \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/sensors \
