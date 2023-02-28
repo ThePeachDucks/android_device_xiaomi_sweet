@@ -2,3 +2,6 @@
 /data/vendor/fortsense(/.*)?                              u:object_r:fingerprint_data_file:s0 
 /data/vendor/fpc(/.*)?                                    u:object_r:fingerprint_data_file:s0
 /dev/fortsense_fp                                         u:object_r:fingerprint_device:s0
+
+# HAL's
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2.3-service\.xiaomi_sm6150                      u:object_r:hal_fingerprint_default_exec:s0
