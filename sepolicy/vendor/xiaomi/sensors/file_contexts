@@ -1,2 +1,5 @@
 # Elliptic
 /dev/elliptic0                                                       u:object_r:vendor_elliptic_device:s0
+
+# Hall
+/dev/akm09970                                                        u:object_r:hall_device:s0

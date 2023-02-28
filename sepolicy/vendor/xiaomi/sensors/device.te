@@ -1,2 +1,5 @@
 # Elliptic
 type vendor_elliptic_device, dev_type;
+
+# Hall
+type hall_device, dev_type;
