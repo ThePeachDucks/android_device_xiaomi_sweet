@@ -20,6 +20,7 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
 BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/audio \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/batterysecret \
+    device/xiaomi/sweet/sepolicy/vendor/xiaomi/bluetooth \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/camera \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/fingerprint \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/ir \
