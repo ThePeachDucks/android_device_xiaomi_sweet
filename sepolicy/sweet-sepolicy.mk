@@ -27,6 +27,7 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/power \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/power_supply \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/sensors \
+    device/xiaomi/sweet/sepolicy/vendor/xiaomi/telephony \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/thermald \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/touchfeature \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/wlan
