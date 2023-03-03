@@ -16,6 +16,10 @@
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/private
 
+# QCOM
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    device/xiaomi/sweet/sepolicy/vendor/qcom
+
 # Xiaomi
 BOARD_VENDOR_SEPOLICY_DIRS += \
     device/xiaomi/sweet/sepolicy/vendor/xiaomi/audio \
