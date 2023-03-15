@@ -113,6 +113,7 @@ BOARD_KERNEL_CMDLINE := \
     androidboot.init_fatal_reboot_target=recovery \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
+    androidboot.selinux=permissive \
     cgroup.memory=nokmem,nosocket \
     console=ttyMSM0,115200n8 \
     earlycon=msm_geni_serial,0x880000 \
@@ -182,7 +183,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # SEPolicy
 include device/xiaomi/sweet/sepolicy/sweet-sepolicy.mk
-TARGET_SEPOLICY_DIR := msmsteppe
 
 # Inherit from proprietary files
 include vendor/xiaomi/sweet/BoardConfigVendor.mk
